@@ -1,0 +1,132 @@
+
+
+footer{
+    display: block;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 15px;
+}
+
+footer span{
+    margin: 10px;
+}
+
+#phone{
+    width: 450px;
+    height: 615px;
+    padding-left: 400px;
+    margin-top: 75px;
+    position: fixed;
+    z-index: 1;
+}
+
+.left{
+    float: left;
+    width: 430px;
+    height: 700px;
+}
+
+.right{
+    float: right;
+    width: 430px;
+    height: 700px;
+}
+
+.container{
+    display: flex;
+    align-items: center; 
+}
+
+#selected_2023{
+    border: none;
+    appearance: 0px;
+    width: 70px;
+    margin-left: 700px;
+
+}
+
+#I2023_selected{
+    display: inline-block;
+}
+
+#pic1{
+    padding-left: 550px;
+    margin-top: 97px;
+    height: 530px;
+    width: 245px;
+    z-index: 2;
+    position: fixed;
+    display: block;
+}
+
+#pic2{
+    padding-left: 550px;
+    margin-top: 97px;
+    height: 530px;
+    width: 245px;
+    z-index: 2;
+    position: fixed;
+    display: block;
+}
+
+#pic3{
+    padding-left: 550px;
+    margin-top: 97px;
+    height: 530px;
+    width: 245px;
+    z-index: 2;
+    position: fixed;
+    display: block;
+}
+
+#pic4{
+    padding-left: 550px;
+    margin-top: 97px;
+    height: 530px;
+    width: 245px;
+    z-index: 2;
+    position: fixed;
+    display: block;
+}
+
+#ins{
+    position: fixed;
+    display: block;
+    text-align: center;
+    margin-top: 110px;
+    font-size: xx-large;
+    left: 950px;
+}
+
+#user{
+    text-align: left;
+    position: fixed;
+    margin-top: 200px;
+    left: 895px ;
+    width: 250px;
+    height: 25px;
+}
+
+#password{
+    text-align: left;
+    position: fixed;
+    margin-top: 250px;
+    left: 895px ;
+    width: 250px;
+    height: 25px;
+}
+
+#btnlogin{
+    text-align: left;
+    position: fixed;
+    margin-top: 300px;
+    left: 895px ;
+    width: 260px;
+    height: 25px;
+    text-align: center;
+    background-color: aqua;
+    border-radius: 8px;
+}

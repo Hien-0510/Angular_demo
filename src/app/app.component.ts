@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Item } from './models/item.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lesson-4';
+
+  listItem: Item[] = []; 
 }
