@@ -10,7 +10,7 @@
       </div>
       <div class="product-price-btn">
         <p><span>{{item.price | currency}}</span>VND</p>
-        <button type="button">buy now</button>
+        <button type="button" (click)="addToCart(item)">buy now</button>
       </div>
     </div>
   </div>
