@@ -1,19 +1,21 @@
-<form [formGroup]="form">
-    <div class="form-group">
-        <label>Nhap Ten</label>
-        <input type="text" class="form-control" formControlName="name">
-    </div>
-    <div class="form-group">
-        <label>Gia</label>
-        <input type="number" class="form-control" formControlName="price">
-    </div>
-    <div class="form-group form-check">
-        <label>So Luong</label>
-        <input type="number" class="form-control" formControlName="quantity">
-    </div>
-    <div class="form-group form-check">
-        <label>Mo ta</label>
-        <textarea type="text" class="form-control" formControlName="description"> </textarea> 
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
-</form>
+<div class="container">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Nhap Ten</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label>Gia</label>
+            <input type="number" class="form-control" formControlName="price">
+        </div>
+        <div class="form-group form-check">
+            <label>So Luong</label>
+            <input type="number" class="form-control" formControlName="quantity">
+        </div>
+        <div class="form-group form-check">
+            <label>Mo ta</label>
+            <textarea type="text" class="form-control" formControlName="description"> </textarea>  
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+</div>
