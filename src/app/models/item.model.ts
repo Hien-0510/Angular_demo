@@ -4,5 +4,5 @@ export interface Item {
     price : number;
     description : string;
     inStock?: number;
-    photo: string;
+    image: string;
 }
