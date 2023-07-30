@@ -22,13 +22,15 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { HomeRoutingModule } from './pages/home/home-routing.module';
+import { ShoppingCartModule } from './pages/shopping-cart/shopping-cart.module';
 
 
 @NgModule({
   declarations: [
-      ItemCardComponent,
+
       AppComponent,
-      FormComponent
+
   ],
   imports: [
     BrowserModule,

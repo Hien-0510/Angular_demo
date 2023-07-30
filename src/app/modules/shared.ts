@@ -31,9 +31,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { ItemCardComponent } from '../components/item-card/item-card.component';
+import { FormComponent } from '../components/form/form.component';
 
 @NgModule( {
-    declarations: [NavbarComponent],
+    declarations: [NavbarComponent, ItemCardComponent, FormComponent],
     imports: [ 
         MatCheckboxModule,
         MatCheckboxModule,

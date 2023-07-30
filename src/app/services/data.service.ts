@@ -14,7 +14,7 @@ export class DataService {
       price: 1000,
       description: 'Biển Đông là của chúng tôi',
       inStock: 1,
-      photo: 'china.jpeg'
+      image: 'china.jpeg'
     },
     {
       id: '2',
@@ -22,7 +22,7 @@ export class DataService {
       price: 2000,
       description: 'Hoàng Sa là của chúng tôi',
       inStock: 2,
-      photo: 'china.jpeg'
+      image: 'china.jpeg'
     },
     {
       id: '3',
@@ -30,7 +30,7 @@ export class DataService {
       price: 3000,
       description: 'Trường Sa là của chúng tôi',
       inStock: 3,
-      photo: 'china.jpeg'
+      image: 'china.jpeg'
     },
     {
       id: '4',
@@ -38,7 +38,7 @@ export class DataService {
       price: 4000,
       description: 'Tôi là người Trung Hoa Dân Quốc',
       inStock: 4,
-      photo: 'china.jpeg'
+      image: 'china.jpeg'
     }
   ]; 
 

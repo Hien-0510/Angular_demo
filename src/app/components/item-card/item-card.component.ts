@@ -26,17 +26,5 @@ export class ItemCardComponent {
     window.alert('Your product has been added to the cart!');
   }
 
-  getItems() {
-    return this.itemInCart;
-  }
-
-  clearCart() {
-    this.itemInCart = [];
-    return this.itemInCart;
-  }
-
-  deleteItem(item: Item) {
-    this.itemInCart.splice(this.itemInCart.indexOf(item), 1);
-  }
 }
  

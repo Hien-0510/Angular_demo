@@ -35,7 +35,7 @@ export class FormComponent implements OnInit{
         price: this.price.value?? 0,
         description: this.description.value?? 'Mô tả mặc định',
         inStock: this.quantity.value?? 0,
-        photo: 'china.jpeg'
+        image: 'china.jpeg'
       };
       this.dataService.addItem(newItem);
     }
