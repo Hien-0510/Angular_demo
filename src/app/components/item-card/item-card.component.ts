@@ -1,7 +1,7 @@
 import { Item } from 'src/app/models/item.model';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from 'src/app/cart.service';
+
 
 
 @Component({
@@ -17,14 +17,26 @@ export class ItemCardComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
   ) {}
 
   ngOnInit(): void {}
 
-  addToCart(product: Item) {
-    this.cartService.addToCart(product);
+  addToCart(item: Item) {
+    this.itemInCart.push(item);
     window.alert('Your product has been added to the cart!');
+  }
+
+  getItems() {
+    return this.itemInCart;
+  }
+
+  clearCart() {
+    this.itemInCart = [];
+    return this.itemInCart;
+  }
+
+  deleteItem(item: Item) {
+    this.itemInCart.splice(this.itemInCart.indexOf(item), 1);
   }
 }
  
