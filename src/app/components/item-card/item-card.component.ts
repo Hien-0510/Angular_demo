@@ -24,7 +24,20 @@ export class ItemCardComponent {
   ngOnInit(): void {}
 
   addToCart(item: Item) {
-    this.dataService.addToCart(item);
+     this.dataService.addItem(item);
+  }
+
+  updateItem(item: Item) {
+    this.dataService.updateDoc(item);
+  }
+
+  deleteItem(item: Item) {
+    this.dataService.deleteItem(item.id);
+  }
+
+  getItem(item: Item) {
+    this.dataService.itemUpdate = item;
+    console.log(this.dataService.itemUpdate);
   }
 
 }

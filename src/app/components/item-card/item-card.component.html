@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" (click)="getItem(item)">
     <div class="product-img">
       <img src={{item.image}} height="420" width="327">
     </div>
@@ -11,6 +11,7 @@
       <div class="product-price-btn">
         <p><span>{{item.price}}</span></p>
         <button type="button" (click)="addToCart(item)">buy now</button>
+        <button type="button" (click)="deleteItem(item)">Delete</button>
       </div>
     </div>
   </div>

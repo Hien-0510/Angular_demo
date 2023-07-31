@@ -1,4 +1,4 @@
-import { Firestore, collection, addDoc, collectionSnapshots, updateDoc, doc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionSnapshots, updateDoc, doc, deleteDoc, query, where, getDocs } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item.model';
 
@@ -6,6 +6,8 @@ import { Item } from '../models/item.model';
   providedIn: 'root'
 })
 export class DataService {
+
+  itemUpdate!: Item 
 
   listCart: Item[] = [];
   listItems: Item[] = [];
@@ -31,9 +33,19 @@ export class DataService {
        let result = await addDoc(this.itemsCollection, newItem);
    }
 
-  updateDoc(item: any) {
+  async updateDoc(item: any) {
+    let docRef = doc(this.firestore, 'item', item.id);
+     await updateDoc(docRef,{... item} );
+  }
 
+  async deleteItem(id: string) {
+    let q = query(this.itemsCollection, where('id', '==', id));
+    let querySnapshot = await getDocs(q);
+    let value =  querySnapshot.docs[0].id;
+    await deleteDoc(doc(this.firestore, 'item', value));
   }
  }
+
+ 
 
 

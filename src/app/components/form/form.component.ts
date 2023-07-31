@@ -24,9 +24,9 @@ export class FormComponent implements OnInit{
     this.form.addControl('quantity', this.quantity);
     this.form.addControl('description', this.description);
     this.form.addControl('image', this.image);
-    this.listItems = this.dataService.listItems;
+    this.listItems = this.dataService.listItems;    
   }
-  ngOnInit(): void {
+  ngOnInit(): void {                    
     console.log(this.listItems.length !=0? this.listItems : 'No items');
   }
   

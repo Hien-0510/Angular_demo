@@ -1,9 +1,34 @@
 
 <div class="container mt-5">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-6 offset-md-3">
         <form class="awesome-form" [formGroup]="form">
           <h2 class="text-center">Add Product</h2>
+  
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Full Name" formControlName="name">
+          </div>
+  
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="price" formControlName="price">
+          </div>
+  
+          <div class="form-group">
+            <input type="tel" class="form-control" id="phone" placeholder="quantity" formControlName="quantity">
+          </div>
+  
+          <div class="form-group">
+            <textarea class="form-control" id="message" rows="3" placeholder="description" formControlName="description"></textarea>
+          </div>
+  
+          <button type="button" class="btn btn-block btn-primary" (click)="onSubmit()">Submit</button>
+        </form>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form class="awesome-form" [formGroup]="form">
+          <h2 class="text-center">Edit Product</h2>
   
           <div class="form-group">
             <input type="text" class="form-control" id="name" placeholder="Full Name" formControlName="name">
