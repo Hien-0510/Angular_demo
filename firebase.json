@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "lesson-4",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

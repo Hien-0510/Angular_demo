@@ -33,10 +33,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { ItemCardComponent } from '../components/item-card/item-card.component';
 import { FormComponent } from '../components/form/form.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule( {
     declarations: [NavbarComponent, ItemCardComponent, FormComponent],
     imports: [ 
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         MatCheckboxModule,
         MatCheckboxModule,
         MatButtonModule,
@@ -91,6 +97,10 @@ import { FormComponent } from '../components/form/form.component';
         MatSortModule,
         MatExpansionModule,
         NavbarComponent,
+        ItemCardComponent,
+        FormComponent,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         MatDatepickerModule,

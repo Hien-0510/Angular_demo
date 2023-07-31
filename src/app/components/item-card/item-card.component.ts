@@ -1,6 +1,7 @@
 import { Item } from 'src/app/models/item.model';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 
 
@@ -17,13 +18,13 @@ export class ItemCardComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private dataService: DataService,
   ) {}
 
   ngOnInit(): void {}
 
   addToCart(item: Item) {
-    this.itemInCart.push(item);
-    window.alert('Your product has been added to the cart!');
+    this.dataService.addToCart(item);
   }
 
 }

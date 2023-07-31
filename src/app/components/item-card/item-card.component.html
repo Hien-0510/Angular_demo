@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="product-img">
-      <img src="../../../assets/images/china.jpeg" height="420" width="327">
+      <img src={{item.image}} height="420" width="327">
     </div>
     <div class="product-info">
       <div class="product-text">
@@ -9,7 +9,7 @@
         <p>{{item.description}}</p>
       </div>
       <div class="product-price-btn">
-        <p><span>{{item.price | currency}}</span></p>
+        <p><span>{{item.price}}</span></p>
         <button type="button" (click)="addToCart(item)">buy now</button>
       </div>
     </div>

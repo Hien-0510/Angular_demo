@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "web-23a": {
+      "hosting": {
+        "lesson-4": [
+          "web-23a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "web-23a"
+  }
+}

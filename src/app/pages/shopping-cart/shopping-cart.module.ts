@@ -7,7 +7,8 @@ import { ShoppingCartComponent } from './shopping-cart.component';
 import { SharedMaterialModule } from 'src/app/modules/shared';
 import { ItemCardComponent } from 'src/app/components/item-card/item-card.component';
 import { FormComponent } from 'src/app/components/form/form.component';
-
+import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { FormComponent } from 'src/app/components/form/form.component';
     CommonModule,
     ShoppingCartRoutingModule,
     SharedMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ShoppingCartModule { }

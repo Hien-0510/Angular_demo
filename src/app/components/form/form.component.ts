@@ -16,12 +16,14 @@ export class FormComponent implements OnInit{
   price: FormControl<number | null> = new FormControl(0);
   quantity: FormControl<number | null> = new FormControl(0);
   description: FormControl<string | null> = new FormControl('');
+  image: FormControl<string | null> = new FormControl('');
 
   constructor(protected dataService: DataService) { 
     this.form.addControl('name',this.name);
     this.form.addControl('price', this.price);
     this.form.addControl('quantity', this.quantity);
     this.form.addControl('description', this.description);
+    this.form.addControl('image', this.image);
     this.listItems = this.dataService.listItems;
   }
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class FormComponent implements OnInit{
         price: this.price.value?? 0,
         description: this.description.value?? 'Mô tả mặc định',
         inStock: this.quantity.value?? 0,
-        image: 'china.jpeg'
+        image: this.image.value?? 'https://picsum.photos/200/300',
       };
       this.dataService.addItem(newItem);
     }

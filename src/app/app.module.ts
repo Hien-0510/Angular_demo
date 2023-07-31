@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormComponent } from './components/form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ItemCardComponent } from './components/item-card/item-card.component';
 import { SharedMaterialModule } from './modules/shared';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
@@ -24,6 +21,11 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { HomeRoutingModule } from './pages/home/home-routing.module';
 import { ShoppingCartModule } from './pages/shopping-cart/shopping-cart.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -36,7 +38,6 @@ import { ShoppingCartModule } from './pages/shopping-cart/shopping-cart.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -53,6 +54,10 @@ import { ShoppingCartModule } from './pages/shopping-cart/shopping-cart.module';
     MdbTooltipModule,
     MdbValidationModule,
     SharedMaterialModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]
