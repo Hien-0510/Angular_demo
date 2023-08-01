@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  onAuthStateChanged(arg0: (user: any) => void) {
+    throw new Error('Method not implemented.');
+  }
   user: User | null = null;
   constructor(private auth: Auth) { 
     this.auth.onAuthStateChanged((user) => {

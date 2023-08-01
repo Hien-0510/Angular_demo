@@ -26,12 +26,14 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
+import { ItemCartComponent } from './components/item-cart/item-cart.component';
 
 
 @NgModule({
   declarations: [
 
       AppComponent,
+
 
   ],
   imports: [

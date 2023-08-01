@@ -36,9 +36,10 @@ import { FormComponent } from '../components/form/form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ItemCartComponent } from '../components/item-cart/item-cart.component';
 
 @NgModule( {
-    declarations: [NavbarComponent, ItemCardComponent, FormComponent],
+    declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent],
     imports: [ 
         CommonModule,
         FormsModule,
@@ -74,8 +75,7 @@ import { CommonModule } from '@angular/common';
         MatSnackBarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
-
+        MatPaginatorModule,
     ],
     exports: [
         MatButtonModule,
@@ -100,7 +100,8 @@ import { CommonModule } from '@angular/common';
         ItemCardComponent,
         FormComponent,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ItemCartComponent,
     ],
     providers: [
         MatDatepickerModule,

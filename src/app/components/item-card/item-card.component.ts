@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Item } from 'src/app/models/item.model';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,28 +15,45 @@ export class ItemCardComponent {
 
   @Input()
   item!: Item;
-   itemInCart: Item[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
 
   addToCart(item: Item) {
-     this.dataService.addItem(item);
+    if(!this.authService.user) {
+      alert('Please login to add to cart');
+      return;
+    }
+     this.dataService.addToCart(item);
   }
 
   updateItem(item: Item) {
+    if(!this.authService.user) {
+      alert('Please login to add to cart');
+      return;
+    }
     this.dataService.updateDoc(item);
   }
 
   deleteItem(item: Item) {
+    if(!this.authService.user) {
+      alert('Please login to add to cart');
+      return;
+    }
     this.dataService.deleteItem(item.id);
   }
 
   getItem(item: Item) {
+    if(!this.authService.user) {
+      alert('Please login to add to cart');
+      return;
+    }
     this.dataService.itemUpdate = item;
     console.log(this.dataService.itemUpdate);
   }

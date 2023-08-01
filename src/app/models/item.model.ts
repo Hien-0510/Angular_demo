@@ -5,4 +5,5 @@ export interface Item {
     description : string;
     inStock?: number;
     image: string;
+    inCart?: number;
 }

@@ -1,17 +1,18 @@
-<div class="wrapper" (click)="getItem(item)">
+<div class="wrapper">
     <div class="product-img">
       <img src={{item.image}} height="420" width="327">
     </div>
     <div class="product-info">
       <div class="product-text">
         <h1>{{item.name}}</h1>
-        <h2>{{item.inStock}}</h2>
+        <button (click)="decreaseItem(item)"> - </button>
+        <h2>{{item.inCart}}</h2>
+        <button (click)="increaseItem(item)"> + </button>
         <p>{{item.description}}</p>
       </div>
       <div class="product-price-btn">
         <p><span>{{item.price}}</span></p>
-        <button type="button" (click)="addToCart(item)">buy now</button>
-        <button type="button" (click)="deleteItem(item)">Delete</button>
+        <button type="button" (click)="deleteCartItem(item)">Delete</button>
       </div>
     </div>
 </div>

@@ -6,6 +6,12 @@ import { Item } from '../models/item.model';
   providedIn: 'root'
 })
 export class DataService {
+  logout() {
+    throw new Error('Method not implemented.');
+  }
+  loginWithGoogle() {
+    throw new Error('Method not implemented.');
+  }
 
   itemUpdate!: Item 
 
@@ -43,6 +49,42 @@ export class DataService {
     let querySnapshot = await getDocs(q);
     let value =  querySnapshot.docs[0].id;
     await deleteDoc(doc(this.firestore, 'item', value));
+  }
+
+  addToCart(item: any) {
+    let index = this.listCart.findIndex((i) => i.id === item.id);
+    if (index === -1) {
+      this.listCart.push({...item, inCart: 1});
+    } else {
+      this.listCart[index].inCart! += 1;
+    }
+  }
+
+  cartTotal(){
+    let total = 0;
+    this.listCart.forEach((item) => {
+      total += item.price * item.inCart!;
+    });
+    return total;
+  }
+
+  increaseItem(item: any) {
+    let index = this.listCart.findIndex((i) => i.id === item.id);
+    this.listCart[index].inCart! += 1;
+  }
+
+  decreaseItem(item: any) {
+    let index = this.listCart.findIndex((i) => i.id === item.id);
+    if (this.listCart[index].inCart! > 1) {
+      this.listCart[index].inCart! -= 1;
+    } else {
+      this.listCart.splice(index, 1);
+    }
+  }
+
+  deleteCartItem(item: any) {
+    let index = this.listCart.findIndex((i) => i.id === item.id);
+    this.listCart.splice(index, 1);
   }
  }
 

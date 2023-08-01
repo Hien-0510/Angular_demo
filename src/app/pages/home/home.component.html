@@ -1,39 +1,15 @@
 <app-navbar></app-navbar>
 <mdb-carousel [controls]="true" [indicators]="true">
-    <mdb-carousel-item>
+    <mdb-carousel-item *ngFor="let item of dataService.listItems">
       <img
-      src="https://picsum.photos/1280/600"
+      style="height: 850px; width: 1200px;"
+      [src]="item.image"
       class="d-block w-100"
       alt="..."
     />
-    <div class="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img
-      src="https://picsum.photos/1280/600"
-      class="d-block w-100"
-      alt="..."
-    />
-    <div class="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img
-      src="https://picsum.photos/1280/600"
-      class="d-block w-100"
-      alt="..."
-    />
-    <div class="carousel-caption d-none d-md-block">
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
     </mdb-carousel-item>
   </mdb-carousel>
-
-<div>
+<div class="box">
+    <app-item-card *ngFor="let item of dataService.listItems" [item]="item" ></app-item-card>
+</div>
 
