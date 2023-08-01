@@ -3,6 +3,9 @@
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(654px, 1fr));
 }
+#from_container{
+    margin-left: 85px;
+}
 
 /* HEADER SECTION */
 .nav.navbar-nav a {

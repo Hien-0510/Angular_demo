@@ -40,5 +40,6 @@ export class FormComponent implements OnInit{
         image: this.image.value?? 'https://picsum.photos/200/300',
       };
       this.dataService.addItem(newItem);
+      this.form.reset();
     }
 }

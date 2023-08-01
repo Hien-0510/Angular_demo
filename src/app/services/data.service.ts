@@ -64,8 +64,10 @@ export class DataService {
     let total = 0;
     this.listCart.forEach((item) => {
       total += item.price * item.inCart!;
+      this.listCart = [];
     });
     return total;
+
   }
 
   increaseItem(item: any) {
@@ -86,6 +88,7 @@ export class DataService {
     let index = this.listCart.findIndex((i) => i.id === item.id);
     this.listCart.splice(index, 1);
   }
+
  }
 
  

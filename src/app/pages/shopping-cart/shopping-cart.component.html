@@ -1,8 +1,5 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <div id="from_container">
-        <app-form></app-form>
-    </div>
     <div class="box">
         <app-item-cart *ngFor="let item of dataService.listCart" [item]="item" ></app-item-cart>
     </div>
