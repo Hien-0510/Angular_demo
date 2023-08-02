@@ -52,9 +52,15 @@ export class DataService {
   }
 
   addToCart(item: any) {
+    if(item.inStock <= 0){
+      alert('Out of stock');
+      return;
+    }
+    item.inStock -= 1;
     let index = this.listCart.findIndex((i) => i.id === item.id);
     if (index === -1) {
-      this.listCart.push({...item, inCart: 1});
+      item.inCart = 1;
+      this.listCart.push(item);
     } else {
       this.listCart[index].inCart! += 1;
     }
@@ -71,11 +77,17 @@ export class DataService {
   }
 
   increaseItem(item: any) {
+    if(item.inStock <= 0){
+      alert('Out of stock');
+      return;
+    }
+    item.inStock -= 1;
     let index = this.listCart.findIndex((i) => i.id === item.id);
     this.listCart[index].inCart! += 1;
   }
 
   decreaseItem(item: any) {
+    item.inStock += 1;
     let index = this.listCart.findIndex((i) => i.id === item.id);
     if (this.listCart[index].inCart! > 1) {
       this.listCart[index].inCart! -= 1;
