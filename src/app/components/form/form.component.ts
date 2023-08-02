@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from './../../services/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -10,7 +11,7 @@ import { Item } from 'src/app/models/item.model';
 })
 export class FormComponent implements OnInit{
   listItems: Item[] = [];
-    
+
   form: FormGroup = new FormGroup({});
   name: FormControl<string | null> = new FormControl('');
   price: FormControl<number | null> = new FormControl(0);
@@ -18,7 +19,7 @@ export class FormComponent implements OnInit{
   description: FormControl<string | null> = new FormControl('');
   image: FormControl<string | null> = new FormControl('');
 
-  constructor(protected dataService: DataService) { 
+  constructor(protected dataService: DataService, public authService: AuthService) { 
     this.form.addControl('name',this.name);
     this.form.addControl('price', this.price);
     this.form.addControl('quantity', this.quantity);
@@ -39,7 +40,12 @@ export class FormComponent implements OnInit{
         inStock: this.quantity.value?? 0,
         image: this.image.value?? 'https://picsum.photos/200/300',
       };
+      if(!this.authService.user) {
+        alert('Please login to add item');
+        return;
+      } else {
       this.dataService.addItem(newItem);
       this.form.reset();
+      }
     }
 }

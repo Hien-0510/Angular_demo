@@ -38,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ItemCartComponent } from '../components/item-cart/item-cart.component';
 
+
 @NgModule( {
     declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent],
     imports: [ 

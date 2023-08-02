@@ -1,12 +1,13 @@
 <app-navbar></app-navbar>
 <mdb-carousel [controls]="true" [indicators]="true">
-    <mdb-carousel-item *ngFor="let item of dataService.listItems">
-      <img
-      style="height: 850px; width: 1200px;"
-      [src]="item.image"
-      class="d-block w-100"
-      alt="..."
-    />
+    <mdb-carousel-item *ngFor="let item of dataService.listItems"  style="height: 850px; width: 100%; background-color:grey;">
+      <div style="height: 100%; width: 100%">
+        <img
+        style="height: 100%; width: 100%;  object-fit: contain;"
+        [src]="item.image"
+        class="d-block w-100"               
+        alt="..."/>
+      </div>
     </mdb-carousel-item>
   </mdb-carousel>
 <div class="box">

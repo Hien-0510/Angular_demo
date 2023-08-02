@@ -5,9 +5,11 @@
     <div class="product-info">
       <div class="product-text">
         <h1>{{item.name}}</h1>
-        <button (click)="decreaseItem(item)"> - </button>
-        <h2>{{item.inCart}}</h2>
-        <button (click)="increaseItem(item)"> + </button>
+        <div id="button">
+          <button id="caculate" (click)="decreaseItem(item)"> - </button>
+          <h2>{{item.inCart}}</h2>
+          <button id="caculate" (click)="increaseItem(item)"> + </button>
+        </div>
         <p>{{item.description}}</p>
       </div>
       <div class="product-price-btn">
