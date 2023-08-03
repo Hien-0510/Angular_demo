@@ -1,14 +1,11 @@
-import { createAction } from "@ngrx/store";
-import { catFact } from "src/app/models/cat-facts.model";
-
-export const catFactAction = {
-    loadCatFacts: createAction('[CatFact] Load CatFacts'),
-    loadCatFactsSuccess: createAction(
-    '[CatFact] Load CatFacts Success', 
-    (catFacts: catFact[] ) => ({ catFacts })
-    ),
-    loadCatFactsFailure: createAction(
-    '[CatFact] Load CatFacts Failure', 
-    (error: string) => ({ error })
-    )
-}
+import {createAction, props} from '@ngrx/store';
+import { Cat } from 'src/app/models/cat-facts.model';
+export const getCats = createAction(
+    '[Cat] Get Cats', 
+    props<{limit: number}>());
+export const getCatsSuccess = createAction(
+    '[Cat] Get Cats Success', 
+    props<{data: Cat[]}>());
+export const getCatsError = createAction(
+    '[Cat] Get Cats Error', 
+    props<{error: any}>());

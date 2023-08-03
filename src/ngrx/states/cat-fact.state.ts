@@ -1,7 +1,7 @@
-import { catFact } from 'src/app/models/cat-facts.model';
+import { Cat } from 'src/app/models/cat-facts.model';
 
-export interface catFactState{
-    catFact: catFact[];
+export interface catState{
+    cats: Cat[];
     isLoading: boolean;
-    error: string;
+    error: any;
 }

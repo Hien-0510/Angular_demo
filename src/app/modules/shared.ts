@@ -37,10 +37,11 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ItemCartComponent } from '../components/item-cart/item-cart.component';
+import { ItemCatComponent } from '../components/item-cat/item-cat.component';
 
 
 @NgModule( {
-    declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent],
+    declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent, ItemCatComponent],
     imports: [ 
         CommonModule,
         FormsModule,
@@ -103,6 +104,7 @@ import { ItemCartComponent } from '../components/item-cart/item-cart.component';
         FormsModule,
         ReactiveFormsModule,
         ItemCartComponent,
+        ItemCatComponent
     ],
     providers: [
         MatDatepickerModule,

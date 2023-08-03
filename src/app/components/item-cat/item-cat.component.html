@@ -1,0 +1,18 @@
+
+<section class="cards-wrapper">
+    <div class="card-grid-space">
+      <a
+        class="card"
+        href="https://codetheweb.blog/2017/10/06/html-syntax/"
+        style="
+          --bg-img: url({{ cat.catImage.url }});
+        "
+      >
+        <div>
+          <p>
+            {{ cat.catFact.fact||"Cat Fact" }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>

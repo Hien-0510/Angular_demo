@@ -1,25 +1,81 @@
- import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catFact } from '../models/cat-facts.model';
+import { HttpClient } from '@angular/common/http';
+import { Cat, CatFact } from '../models/cat-facts.model';
+import { map, zip } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatService {
+  title = 'Project';
+  listCatFact: CatFact[] = [];
+  constructor(protected httpClient: HttpClient) {}
 
-  constructor(private http: HttpClient) {}
-  
-  getCatFacts(maxLength: number, limit: number): Observable<catFact[]>{
-    let responseFacts = this.http.get<catFact[]>(
-      `http://catfact.ninja/facts?max_length=${9999}&limit=${limit}`
+  async getCatFact() {
+    let result: CatFact;
+    let response = this.httpClient.get('https://catfact.ninja/fact');
+    let promise = await new Promise((resolve, reject) => {
+      response.subscribe({
+        next: (data) => {
+          result = data as CatFact;
+          result.id = Date.now().toString();
+          resolve(result);
+        },
+        error: (error) => {
+          reject(error);
+        },
+      });
+    });
+
+    return promise;
+  }
+
+  async getCatImage() {
+    let result: string;
+    let response = this.httpClient.get(
+      'https://api.thecatapi.com/v1/images/search'
     );
-    return responseFacts;
-  };
 
-  getCatImages(limit: number): Observable<any>{
-    return this.http.get(
-      `http://api.thecatapi.com/v1/images/search?limit=${limit}`
-    ); 
+    let promise = await new Promise((resolve, reject) => {
+      response.subscribe({
+        next: (data: any) => {
+          result = data[0].url;
+          resolve(result);
+        },
+        error: (error) => {
+          reject(error);
+        },
+      });
+    });
+
+    return promise;
+  }
+  getCats(limit: number) {
+    let zip$ = zip(this.getCatsfact(limit), this.getCatsImage(limit)).pipe(
+      map(([catFact, catImage]) => {
+        let facts = catFact['data'];
+        let images = catImage;
+        let result: Cat[] = [];
+        for (let i = 0; i < limit; i++) {
+          result.push({
+            catFact: facts[i],
+            catImage: images[i],
+          });
+        }
+        return result;
+      })
+    );
+    return zip$;
+  }
+
+  getCatsfact(limit: number) {
+    return this.httpClient.get<any>(
+      `https://catfact.ninja/facts?limit=${limit}`
+    );
+  }
+  getCatsImage(limit: number) {
+    return this.httpClient.get<any>(
+      `https://api.thecatapi.com/v1/images/search?limit=${limit}`
+    );
   }
 }

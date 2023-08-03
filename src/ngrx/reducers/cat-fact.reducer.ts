@@ -1,18 +1,30 @@
 import { createReducer, on } from "@ngrx/store";
-import { catFactAction } from "../actions/cat-fact.action";
-import { catFactState } from "../states/cat-fact.state";
-
-export const initialState: catFactState = {
-    catFact: [],
-    isLoading: false,
-    error: '',
-};
-
-export const catFactReducer = createReducer(initialState, 
-    on(catFactAction.loadCatFacts, (state) => (
-    {...state, isLoading: true})),
-    on(catFactAction.loadCatFactsSuccess, (state, { catFacts }) => (
-    {...state, catFacts, isLoading: false})),
-    on(catFactAction.loadCatFactsFailure, (state, { error }) => (
-    {...state, error, isLoading: false}))
-);
+import { catState } from "../states/cat-fact.state";
+import  * as CatAction from "../actions/cat-fact.action";
+export const catInitState : catState = {
+    cats : [],
+    error : '',   
+    isLoading : false
+}
+export const catReducer = createReducer(catInitState,
+    on (CatAction.getCats, (state) => {
+        return {
+            ...state,
+            isLoading : true
+        }
+    }),
+    on (CatAction.getCatsSuccess, (state, {data}) => {
+        return {
+            ...state,
+            isLoading : false,
+            cats : data
+        }
+    }),
+    on (CatAction.getCatsError, (state, {error}) => {
+        return {
+            ...state,
+            isLoading : false,
+            error : error
+        }
+    }),
+)

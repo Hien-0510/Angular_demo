@@ -28,6 +28,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { ItemCatComponent } from './components/item-cat/item-cat.component';
+import { catReducer } from 'src/ngrx/reducers/cat-fact.reducer';
+import { CatEffect } from 'src/ngrx/effects/cat-fact.effect';
 
 @NgModule({
   declarations: [
@@ -59,8 +62,8 @@ import { EffectsModule } from '@ngrx/effects';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({cats: catReducer}, {}),
+    EffectsModule.forRoot([CatEffect]),
   ],
   providers: [],
   bootstrap: [AppComponent]
