@@ -20,6 +20,6 @@ export class CatService {
   getCatImages(limit: number): Observable<any>{
     return this.http.get(
       `http://api.thecatapi.com/v1/images/search?limit=${limit}`
-    );
+    ); 
   }
 }

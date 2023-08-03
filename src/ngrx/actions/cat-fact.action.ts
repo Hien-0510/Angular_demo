@@ -5,7 +5,7 @@ export const catFactAction = {
     loadCatFacts: createAction('[CatFact] Load CatFacts'),
     loadCatFactsSuccess: createAction(
     '[CatFact] Load CatFacts Success', 
-    (catFacts: catFact[]) => ({ catFacts })
+    (catFacts: catFact[] ) => ({ catFacts })
     ),
     loadCatFactsFailure: createAction(
     '[CatFact] Load CatFacts Failure', 
