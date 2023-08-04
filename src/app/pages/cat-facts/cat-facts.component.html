@@ -1,4 +1,4 @@
 <app-navbar></app-navbar>
 <div class="editCat">
-    <app-item-cart *ngFor="let cat of (cats$|async)?.cats"></app-item-cart>
+    <app-item-cat *ngFor="let cat of (cats$|async)?.cats" [cat]="cat"></app-item-cat>
 </div>
