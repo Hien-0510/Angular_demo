@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Cat } from 'src/app/models/cat-facts.model';
+import { catFacts } from 'src/app/models/cat-facts.model';
 import { CatService } from 'src/app/services/cat.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CatService } from 'src/app/services/cat.service';
   styleUrls: ['./item-cat.component.scss']
 })
 export class ItemCatComponent {
-  @Input() cat!: Cat;
+  @Input() catFact!: catFacts;
 
 
   constructor(private catService: CatService) {

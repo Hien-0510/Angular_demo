@@ -2,7 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { catState } from "../states/cat-fact.state";
 import  * as CatAction from "../actions/cat-fact.action";
 export const catInitState : catState = {
-    cats : [],
+    catFacts : [],
     error : '',   
     isLoading : false
 }
@@ -17,7 +17,7 @@ export const catReducer = createReducer(catInitState,
         return {
             ...state,
             isLoading : false,
-            cats : data
+            catFacts : data
         }
     }),
     on (CatAction.getCatsError, (state, {error}) => {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cat, CatFact } from '../models/cat-facts.model';
+import { catFacts, CatFact } from '../models/cat-facts.model';
 import { map, zip } from 'rxjs';
 
 @Injectable({
@@ -55,7 +55,7 @@ export class CatService {
       map(([catFact, catImage]) => {
         let facts = catFact['data'];
         let images = catImage;
-        let result: Cat[] = [];
+        let result: catFacts[] = [];
         for (let i = 0; i < limit; i++) {
           result.push({
             catFact: facts[i],

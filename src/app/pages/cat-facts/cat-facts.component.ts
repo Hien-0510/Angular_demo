@@ -12,11 +12,16 @@ import * as CatAction from 'src/ngrx/actions/cat-fact.action';
   styleUrls: ['./cat-facts.component.scss']
 })
 export class CatFactsComponent {
-  cats$ = new Observable<catState>();
-  constructor(private store: Store<{ cats: catState }>) {}
+  catFacts$!:Observable<catState>;
+  constructor(private store: Store<{ cats: catState }>) {
+    this.catFacts$ = this.store.select('cats');
+    this.store.dispatch(CatAction.getCats({ limit: 10 }));
+    this.catFacts$.subscribe((data) => {
+      console.log(data);
+    })
+  }
 
   ngOnInit() {
-    this.cats$ = this.store.select('cats');
-    this.store.dispatch(CatAction.getCats({ limit: 5 }));
+  
   }
 }

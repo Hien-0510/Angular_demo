@@ -9,7 +9,7 @@ export interface CatFact {
     width: number;
     height: number;
   }
-  export interface Cat{
+  export interface catFacts{
     catFact: CatFact;
     catImage: CatImage;
   }
