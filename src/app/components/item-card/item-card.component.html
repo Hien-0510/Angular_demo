@@ -9,7 +9,7 @@
         <p>{{item.description}}</p>
       </div>
       <div class="product-price-btn">
-        <p><span>{{item.price}}</span></p>
+        <p><span>{{item.price|currency:'VND':'symbol':'3.0':'vi'}}</span></p>
         <button type="button" (click)="addToCart(item)">buy now</button>
         <button style="background-color: crimson;" type="button" (click)="deleteItem(item)">Delete</button>
       </div>

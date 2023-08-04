@@ -3,7 +3,9 @@ import { Item } from 'src/app/models/item.model';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-
+import { registerLocaleData } from '@angular/common';
+import localeVi from '@angular/common/locales/vi';
+registerLocaleData(localeVi, 'vi');
 
 
 @Component({
