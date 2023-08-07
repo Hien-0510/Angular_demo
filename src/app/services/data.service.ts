@@ -26,7 +26,7 @@ export class DataService {
      collectionSnapshots(this.itemsCollection).subscribe((snapshot) => {
        let result = snapshot.map((doc) => doc.data());
        this.listItems = result as Item[];
-   });
+    });
    }
    
    async addItem(newItem: Item) {

@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent {
   listItems: Item[] = [];
+  
 
   constructor(public dataService: DataService,public router: Router) { 
     this.listItems = this.dataService.listItems;

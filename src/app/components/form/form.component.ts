@@ -42,7 +42,7 @@ export class FormComponent implements OnInit{
       };
       if(!this.authService.user) {
         alert('Please login to add item');
-        return;
+        this.form.reset();
       } else {
       this.dataService.addItem(newItem);
       this.form.reset();
