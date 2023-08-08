@@ -18,7 +18,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     ShoppingCartRoutingModule,
     SharedMaterialModule,
-    FormsModule,
     ReactiveFormsModule
   ]
 })

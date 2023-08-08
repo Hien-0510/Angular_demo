@@ -1,6 +1,7 @@
 import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 import { Item } from './models/item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,5 @@ export class AppComponent {
   constructor(protected dataService: DataService) {
     this.listItems = this.dataService.listItems;
   }
-
-  
-
 }
+

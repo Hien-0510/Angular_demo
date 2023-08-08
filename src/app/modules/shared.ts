@@ -38,10 +38,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ItemCartComponent } from '../components/item-cart/item-cart.component';
 import { ItemCatComponent } from '../components/item-cat/item-cat.component';
+import { ChatComponent } from '../components/chat/chat.component';
+import { ChatModule } from '../pages/ass-cus/chat.module';
 
 
 @NgModule( {
-    declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent, ItemCatComponent],
+    declarations: [NavbarComponent, ItemCardComponent, FormComponent, ItemCartComponent, ItemCatComponent, ChatComponent],
     imports: [ 
         CommonModule,
         FormsModule,
@@ -104,7 +106,8 @@ import { ItemCatComponent } from '../components/item-cat/item-cat.component';
         FormsModule,
         ReactiveFormsModule,
         ItemCartComponent,
-        ItemCatComponent
+        ItemCatComponent,
+        ChatComponent,
     ],
     providers: [
         MatDatepickerModule,

@@ -19,8 +19,6 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { HomeRoutingModule } from './pages/home/home-routing.module';
-import { ShoppingCartModule } from './pages/shopping-cart/shopping-cart.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -28,7 +26,6 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { ItemCatComponent } from './components/item-cat/item-cat.component';
 import { catReducer } from 'src/ngrx/reducers/cat-fact.reducer';
 import { CatEffect } from 'src/ngrx/effects/cat-fact.effect';
 
