@@ -31,9 +31,7 @@ import { CatEffect } from 'src/ngrx/effects/cat-fact.effect';
 
 @NgModule({
   declarations: [
-
       AppComponent,
-
   ],
   imports: [
     HttpClientModule,

@@ -39,7 +39,7 @@ import { CommonModule } from '@angular/common';
 import { ItemCartComponent } from '../components/item-cart/item-cart.component';
 import { ItemCatComponent } from '../components/item-cat/item-cat.component';
 import { ChatComponent } from '../components/chat/chat.component';
-import { ChatModule } from '../pages/ass-cus/chat.module';
+
 
 
 @NgModule( {

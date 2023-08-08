@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent {
-
+  constructor(public router: Router) { }
 }
