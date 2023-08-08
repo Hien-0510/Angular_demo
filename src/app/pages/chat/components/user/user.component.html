@@ -1,24 +1,34 @@
-<div class="containerIn4">
-    <div id="ImgUser" class="box">
-        <img [src]="userName?.imgUrl??''" alt="">
-    </div>
-    <div id="in4User" class="box">
-        <p>{{userName?.name??''}}</p>
-        <p>{{userName?.email??''}}</p>
-    </div>
-    <div class="box"><form class="form" [formGroup]="emailFromGroup">
-        <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              formControlName="email"
-              placeholder="Nhập email để kết bạn "
-            />
+<div class="container">
+    <div class="sidebar">
+        <div class="containerIn4" style=" background-color: burlywood;">
+            <div id="ImgUser" class="box" style="margin-right: 14px;">
+                <img [src]="this.authService.user?.photoURL" alt="">
+            </div>
+            <div id="in4User" class="box" style="padding-top: 45px ;">
+                <p>{{this.authService.user?.displayName}}</p>
+                <p>{{this.authService.user?.email}}</p>
+            </div>
+            <div class="box" style="display: flex;">
+                <form class="form" >
+                <div class="form-group" style="padding-top: 50px;">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      formControlName="email"
+                      placeholder="Nhập email để kết bạn "
+                    />
+                  </div>
+            </form>
+            </div>
+            <div id="containerBtn" class="box">
+                <button class="button-62" role="button">Kết bạn <mat-icon style="margin: 5px;">person_add</mat-icon></button>
+            </div>
           </div>
-    </form></div>
-    <div id="containerBtn" class="box">
-        <button class="button-62" role="button">Kết bạn <mat-icon style="margin: 5px;">person_add</mat-icon></button>
-        <!-- <button class="button-62" role="button">Đăng xuất <mat-icon style="margin: 5px;">logout</mat-icon></button> -->
     </div>
-  </div>
+    <div class="textbox">
+        <div>
+    
+        </div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ export class AuthService {
     this.auth.onAuthStateChanged((user) => {
       if(user){
         this.user = user;
+        console.log(user);
       }
       else{
         this.user = null;
