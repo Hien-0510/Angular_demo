@@ -2,6 +2,7 @@ import { Route, Router, Routes } from '@angular/router';
 import { Component } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
 import { DataService } from 'src/app/services/data.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -13,7 +14,12 @@ export class HomeComponent {
   listItems: Item[] = [];
   
 
-  constructor(public dataService: DataService,public router: Router) { 
+  constructor(public dataService: DataService,public router: Router, public authService: AuthService) { 
     this.listItems = this.dataService.listItems;
+  }
+  ngOnInit() {
+    if(!this.authService.user) {
+      return;
+    }
   }
 }

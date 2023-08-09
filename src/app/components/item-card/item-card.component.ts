@@ -25,7 +25,8 @@ export class ItemCardComponent {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   addToCart(item: Item) {
     if(!this.authService.user) {
