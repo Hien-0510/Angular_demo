@@ -1,6 +1,7 @@
 import { Firestore, collection, addDoc, collectionSnapshots, updateDoc, doc, deleteDoc, query, where, getDocs } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class DataService {
     throw new Error('Method not implemented.');
   }
 
-  itemUpdate!: Item 
+  itemUpdate!: Item
 
   listCart: Item[] = [];
   listItems: Item[] = [];
@@ -21,38 +22,38 @@ export class DataService {
   itemsCollection = collection(this.firestore, 'item');
   constructor(private firestore: Firestore) {
     this.getData();
-   }
-   getData() {
-     collectionSnapshots(this.itemsCollection).subscribe((snapshot) => {
-       let result = snapshot.map((doc) => doc.data());
-       this.listItems = result as Item[];
+  }
+  getData() {
+    collectionSnapshots(this.itemsCollection).subscribe((snapshot) => {
+      let result = snapshot.map((doc) => doc.data());
+      this.listItems = result as Item[];
     });
-   }
-   
-   async addItem(newItem: Item) {
-     let timestamp = Date.now().toString();
-       newItem = {
-         ... newItem,
-         id: timestamp,
-       };
-       this.listItems.push(newItem);
-       let result = await addDoc(this.itemsCollection, newItem);
-   }
+  }
+
+  async addItem(newItem: Item) {
+    let timestamp = Date.now().toString();
+    newItem = {
+      ...newItem,
+      id: timestamp,
+    };
+    let result = await addDoc(this.itemsCollection, newItem);
+    this.listItems.push(newItem);
+  }
 
   async updateDoc(item: any) {
     let docRef = doc(this.firestore, 'item', item.id);
-     await updateDoc(docRef,{... item} );
+    await updateDoc(docRef, { ...item });
   }
 
   async deleteItem(id: string) {
     let q = query(this.itemsCollection, where('id', '==', id));
     let querySnapshot = await getDocs(q);
-    let value =  querySnapshot.docs[0].id;
+    let value = querySnapshot.docs[0].id;
     await deleteDoc(doc(this.firestore, 'item', value));
   }
 
   addToCart(item: any) {
-    if(item.inStock <= 0){
+    if (item.inStock <= 0) {
       alert('Out of stock');
       return;
     }
@@ -66,7 +67,7 @@ export class DataService {
     }
   }
 
-  cartTotal(){
+  cartTotal() {
     let total = 0;
     this.listCart.forEach((item) => {
       total += item.price * item.inCart!;
@@ -77,7 +78,7 @@ export class DataService {
   }
 
   increaseItem(item: any) {
-    if(item.inStock <= 0){
+    if (item.inStock <= 0) {
       alert('Out of stock');
       return;
     }
@@ -101,8 +102,8 @@ export class DataService {
     this.listCart.splice(index, 1);
   }
 
- }
+}
 
- 
+
 
 
