@@ -2,6 +2,9 @@ import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 import { Item } from './models/item.model';
 import { HttpClient } from '@angular/common/http';
+import { ChatService } from './services/chat.service';
+import { Chat } from './models/chat.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +14,6 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'lesson-4';
 
-  listItems: Item[] = []
 
-  constructor(protected dataService: DataService) {
-    this.listItems = this.dataService.listItems;
-  }
 }
 

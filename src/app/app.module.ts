@@ -29,6 +29,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { catReducer } from 'src/ngrx/reducers/cat-fact.reducer';
 import { CatEffect } from 'src/ngrx/effects/cat-fact.effect';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ChatReducer } from 'src/ngrx/reducers/chat.reducer';
+import { ChatEffects } from 'src/ngrx/effects/chat.effect';
+
+const config: SocketIoConfig = { url: 'http://localhost:1821', options: {} };
+
 @NgModule({
   declarations: [
       AppComponent,
@@ -57,8 +63,9 @@ import { CatEffect } from 'src/ngrx/effects/cat-fact.effect';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    StoreModule.forRoot({cats: catReducer}, {}),
-    EffectsModule.forRoot([CatEffect]),
+    StoreModule.forRoot({cats: catReducer, chat: ChatReducer}, {}),
+    EffectsModule.forRoot([CatEffect,ChatEffects]),
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
